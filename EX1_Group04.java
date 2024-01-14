@@ -27,7 +27,7 @@ public class EX1_Group04 {
 					System.out.println("Please enter your Binar number");
 					String inputBin = scanner.nextLine();
 
-					if (ChackBin(inputBin)) {
+					if (CheckBin(inputBin)) {
 						try {
 							String OutputHexa = BinToHexa(inputBin);
 							System.out.println("The number in hexadecimal is: " + OutputHexa);
@@ -46,7 +46,7 @@ public class EX1_Group04 {
 					System.out.println("Please enter your Hexadecimal number");
 					String inputHexa = scanner.nextLine();
 
-					if (ChackHexa(inputHexa)) {
+					if (CheckHexa(inputHexa)) {
 						try {
 							String OutputBin = HexaToBin(inputHexa);
 							System.out.println("The number in Binar is: " + OutputBin);
@@ -62,7 +62,7 @@ public class EX1_Group04 {
 		}
 	}
 
-	public static boolean ChackHexa(String Hexa) {
+	public static boolean CheckHexa(String Hexa) {
 		if (Hexa.isEmpty()) {
 			System.out.println("Empty input");
 			return false;
@@ -72,8 +72,8 @@ public class EX1_Group04 {
 			return false;
 		}
 		for (int i = 0; i < Hexa.length(); i++) {
-			if (!(Hexa.charAt(i) >= '0' && Hexa.charAt(i) <= '9')
-					&& !(Hexa.charAt(i) >= 'A' && Hexa.charAt(i) <= 'F')) {
+			if (!(Hexa.charAt(i) >= '0' && Hexa.charAt(i) <= '9') && !(Hexa.charAt(i) >= 'A' && Hexa.charAt(i) <= 'F')
+					&& !(Hexa.charAt(i) >= 'a' && Hexa.charAt(i) <= 'f')) {
 				System.out
 						.println("unvalid input. Hexadecimal number have letters from A to F and numbers from 0 to 9");
 				return false;
@@ -109,7 +109,7 @@ public class EX1_Group04 {
 
 	public static String conHexCharToBin(String thisChar) { // converts one hex char to 4 digits binary number (String)
 		String fourDigBin = "";
-		String hexPos = "0123456789ABCDEF";
+		String hexPos = "0123456789ABCDEFabcdef";
 		int sumOfChar = 0; // holds the decimal value of the char
 		for (int i = 0; i < hexPos.length(); i++) { // finds the value of the specipic char in decimal base.
 			// if(String.valueOf(hexPos.charAt(i)) == thisChar){
@@ -143,7 +143,7 @@ public class EX1_Group04 {
 		return binNum;
 	}
 
-	public static boolean ChackBin(String BinN) {
+	public static boolean CheckBin(String BinN) {
 		if (BinN.isEmpty()) {
 			System.out.println("Empty input");
 			return false;
